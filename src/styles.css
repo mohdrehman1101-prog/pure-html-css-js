@@ -142,3 +142,7 @@
     color: var(--color-foreground);
   }
 }
+
+/* The supplied document owns its exact design inside an isolated viewport. */
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+.original-page { display: block; width: 100%; height: 100dvh; border: 0; }
