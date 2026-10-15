@@ -130,8 +130,8 @@ h3.sub{font-size:22px;margin:20px 14px 12px;font-family:inherit;font-weight:800}
 
 /* Icons inherit the existing palette and preserve control dimensions. */
 .ui-icon{display:inline-block;width:1em;height:1em;vertical-align:-.15em;flex-shrink:0;pointer-events:none}
-.ib,.ctl button,.x,#top,.tx2{color:var(--dark)}
-#top,.tx2{color:inherit}
+.ib,.ctl button,.x{color:var(--dark)}
+.tx2{color:inherit}
 .ib .ui-icon,.ctl .ui-icon,#top .ui-icon{width:18px;height:18px}
 .x .ui-icon,.tx2 .ui-icon{width:16px;height:16px}
 .surp .ui-icon{width:19px;height:19px}
