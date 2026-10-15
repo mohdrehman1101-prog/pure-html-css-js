@@ -12,7 +12,7 @@
 <div class="head">
   <div class="top">
     <div class="logo">BAKE<br>* Ñ *<br>LOVE</div>
-    <div><button class="ib" id="sb">🔍</button><button class="ib" id="fb">☰</button></div>
+    <div><button class="ib" id="sb" data-icon="search" aria-label="Search" title="Search"></button><button class="ib" id="fb" data-icon="menu" aria-label="Filters" title="Filters"></button></div>
   </div>
   <input id="search" placeholder="Search the menu…">
   <div class="chips" id="main"></div>
@@ -22,9 +22,9 @@
 <div id="fav">
   <div class="sec-t"><small>Swipe to explore</small><h2>Bake Ñ Love Favourites</h2></div>
   <div class="deck" id="deck"></div>
-  <div class="ctl"><button id="no">✕</button><div class="dots" id="dots"></div><button id="yes">♥</button></div>
-  <div class="hint">Drag, or tap ✕ / ♥ — tap a card for details</div>
-  <button class="surp" id="surp"><span style="font-size:19px">🎲</span><div><b>Can't decide?</b>Tap for a surprise pick</div><span>→</span></button>
+  <div class="ctl"><button id="no" data-icon="close" aria-label="Skip" title="Skip"></button><div class="dots" id="dots"></div><button id="yes" data-icon="heart" aria-label="Like" title="Like"></button></div>
+  <div class="hint">Drag, or tap <span data-icon="close"></span> / <span data-icon="heart"></span> — tap a card for details</div>
+  <button class="surp" id="surp"><span data-icon="dice"></span><div><b>Can't decide?</b>Tap for a surprise pick</div><span data-icon="arrow"></span></button>
 </div>
 
 <div id="menu"></div>
@@ -42,10 +42,10 @@
 
 <div class="foot">All prices are exclusive of govt. taxes.<br>Pricing not listed is available from your server or at the counter. Ask us about today's specials.</div>
 <img class="flogo" src="/__l5e/assets-v1/290326c7-1480-4951-923c-78fbd03b19fd/bake-love-0.png" alt="Bake Ñ Love">
-<button class="fl" id="vs">Visit our full site →</button>
-<button id="top">↑</button>
+<button class="fl" id="vs">Visit our full site <span data-icon="arrow"></span></button>
+<button id="top" data-icon="up" aria-label="Back to top" title="Back to top"></button>
 <div id="site">
-  <div class="sh"><img class="lg" src="/__l5e/assets-v1/290326c7-1480-4951-923c-78fbd03b19fd/bake-love-0.png" alt="Bake Ñ Love"><b>BAKE Ñ LOVE</b><button class="hb">☰</button><button class="vu" id="visit">Visit Us</button></div>
+  <div class="sh"><img class="lg" src="/__l5e/assets-v1/290326c7-1480-4951-923c-78fbd03b19fd/bake-love-0.png" alt="Bake Ñ Love"><b>BAKE Ñ LOVE</b><button class="hb" data-icon="menu" aria-label="Menu" title="Menu"></button><button class="vu" id="visit">Visit Us</button></div>
   <div class="hero"><small>CULTURE · COMMUNITY</small><h1>A third space,<br>brewed for Kanpur.</h1>
     <p>Specialty coffee, honest comfort food, and a room built for lingering — the neighbourhood café Kanpur didn't have. Until now.</p>
     <div class="hb2"><button class="g tomenu">View the Menu</button><button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Visit Us</button></div></div>
@@ -53,10 +53,11 @@
     <p>Founded by <b>Ahmed Waqar</b>, Bake Ñ Love started from one simple gap: the city lacked a real specialty coffee third space. So he built one.</p>
     <small style="display:block;margin-top:26px">THE FEELING</small><h2>A room built for staying</h2>
     <p>Cane chairs, warm wood, low pendant light. Bake Ñ Love isn't designed to turn tables — it's designed for the coffee to go cold while the conversation keeps going. Coffee, culture, community: in that order, every time.</p></div>
-  <div id="toast"><span style="font-size:22px">🍽</span><div><b>New Menu is Live!</b>Tap to explore</div><button class="tx2" id="tx">✕</button></div>
+  <div id="toast"><span data-icon="utensils"></span><div><b>New Menu is Live!</b>Tap to explore</div><button class="tx2" id="tx" data-icon="close" aria-label="Dismiss" title="Dismiss"></button></div>
 </div>
 <div class="mo" id="mo"><div class="md" id="md"></div></div>
 
+<script src="icons.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

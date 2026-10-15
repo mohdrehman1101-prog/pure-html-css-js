@@ -81,7 +81,7 @@ function renderMenu(){
       <div class="im${cls(i)}" style="${media(i)}">${inner(i)}</div>
       <div class="b"><div class="n"><span>${i.name}</span><span class="pr">₹${i.price}</span></div>${i.best?'<span class="bs">BESTSELLER</span>':''}<p>${i.desc}</p></div></div>`;
   });
-  $('#menu').innerHTML=h+(ls?'</div>':'')||'<p class="hint">Kuch nahi mila 🙈</p>';
+  $('#menu').innerHTML=h+(ls?'</div>':'')||`<p class="hint">Kuch nahi mila ${icon('empty')}</p>`;
 }
 $('#main').onclick=e=>{const m=e.target.dataset.m;if(!m)return;F.main=m;F.sub=null;
   document.querySelectorAll('#main .chip').forEach(c=>c.classList.toggle('on',c.dataset.m===m));
@@ -98,8 +98,8 @@ const mo=$('#mo'),md=$('#md');
 const close=()=>mo.classList.remove('on');
 mo.onclick=e=>{if(e.target===mo||e.target.closest('.x')||e.target.id==='cl')close()};
 function detail(it){
-  md.innerHTML=`<button class="x">✕</button><div class="dt"><div class="im${cls(it)}" style="${media(it)}">${inner(it)}</div><div class="bd">
-  <div class="tg"><span>● ${it.veg?'Veg':'Non-veg'}</span><span>${it.sub}</span></div>
+  md.innerHTML=`<button class="x" aria-label="Close" title="Close">${icon('close')}</button><div class="dt"><div class="im${cls(it)}" style="${media(it)}">${inner(it)}</div><div class="bd">
+  <div class="tg"><span>${icon('dot')} ${it.veg?'Veg':'Non-veg'}</span><span>${it.sub}</span></div>
   <h2>${it.name}<span>₹${it.price}</span></h2><p>${it.desc}</p>
   <div class="st"><div><b>1</b><small>SERVES</small></div><div><b>3 MIN</b><small>PREP TIME</small></div><div><b>15 KCAL</b><small>CALORIES</small></div></div>
   <em>Calories are estimates and may vary — ask staff about allergens or exact ingredients.</em></div></div>`;
@@ -114,24 +114,24 @@ function paint(it){
 /* spin: dishes tezi se badalti hain, dheere-dheere ruk kar ek random dish par land hoti hai */
 function spin(){
   const id=++spinId,btn=$('#again'),final=rnd();let n=0;const total=20;
-  btn.disabled=true;btn.textContent='🎲 Spinning…';$('#pc').classList.add('spin');
+  btn.disabled=true;btn.innerHTML=icon('dice')+' Spinning…';$('#pc').classList.add('spin');
   (function tick(){
     if(id!==spinId||!$('#pc'))return;
     if(n<total){paint(rnd());n++;setTimeout(tick,55+n*n*1.3)}
-    else{paint(final);$('#pc').classList.remove('spin');btn.disabled=false;btn.textContent='🎲 Pick Again'}
+    else{paint(final);$('#pc').classList.remove('spin');btn.disabled=false;btn.innerHTML=icon('dice')+' Pick Again'}
   })();
 }
 function surprise(){
-  md.innerHTML=`<button class="x">✕</button><div class="pk"><small>✨ YOUR BAKE Ñ LOVE PICK</small>
+  md.innerHTML=`<button class="x" aria-label="Close" title="Close">${icon('close')}</button><div class="pk"><small>${icon('sparkle')} YOUR BAKE Ñ LOVE PICK</small>
   <div class="c" id="pc"></div><h2 id="pn"></h2><p id="pd"></p>
-  <button class="btn" id="again">🎲 Pick Again</button><button class="lnk" id="cl">Perfect, Close</button></div>`;
+  <button class="btn" id="again">${icon('dice')} Pick Again</button><button class="lnk" id="cl">Perfect, Close</button></div>`;
   mo.classList.add('on');$('#again').onclick=spin;spin();
 }
 $('#surp').onclick=surprise;
 
 /* ---------- WIN POPUP (puzzle + match game dono ke liye) ---------- */
 function win(t,m){
-  md.innerHTML=`<button class="x">✕</button><div class="pk win"><img src="/__l5e/assets-v1/f41e7f0f-b8f2-4e5a-8676-b8d55a496649/bake-love-8.png" alt=""><h2>${t}</h2><p>${m}</p><button class="btn" id="cl">Yay, Close</button></div>`;
+  md.innerHTML=`<button class="x" aria-label="Close" title="Close">${icon('close')}</button><div class="pk win"><img src="/__l5e/assets-v1/f41e7f0f-b8f2-4e5a-8676-b8d55a496649/bake-love-8.png" alt=""><h2>${t}</h2><p>${m}</p><button class="btn" id="cl">Yay, Close</button></div>`;
   mo.classList.add('on');
 }
 
@@ -176,7 +176,7 @@ $('#mg').onclick=e=>{const c=e.target.closest('.mc');
   if(!c||lock||c.classList.contains('f'))return;c.classList.add('f');open.push(c);
   if(open.length===2){mv++;$('#mv').textContent=mv;const[a,b]=open;
     if(a.dataset.e===b.dataset.e){a.classList.add('m');b.classList.add('m');pairs++;$('#pr').textContent=pairs;open=[];
-      if(pairs===6)setTimeout(()=>win('Yay! All pairs found 🎉','You matched every pair, so sweet ♥ Moves: '+mv),400)}
+      if(pairs===6)setTimeout(()=>win(`Yay! All pairs found ${icon('trophy')}`,`You matched every pair, so sweet ${icon('heart')} Moves: ${mv}`),400)}
     else{lock=1;setTimeout(()=>{a.classList.remove('f');b.classList.remove('f');open=[];lock=0},800)}}};
 $('#mr').onclick=memInit;memInit();
 
@@ -196,7 +196,7 @@ function pzDraw(){
 }
 $('#pz').onclick=e=>{const t=e.target.closest('.pt');if(!t)return;const i=+t.dataset.i,em=T.indexOf(8);
   if(nb(em).includes(i)){[T[i],T[em]]=[T[em],T[i]];pm++;$('#pm').textContent=pm;pzDraw();
-    if(T.every((v,k)=>v===k))setTimeout(()=>win('Yay! Puzzle complete 🎉','You pieced it together beautifully ♥ Moves: '+pm),300)}};
+    if(T.every((v,k)=>v===k))setTimeout(()=>win(`Yay! Puzzle complete ${icon('trophy')}`,`You pieced it together beautifully ${icon('heart')} Moves: ${pm}`),300)}};
 $('#ps').onclick=pzInit;pzInit();
 
 /* ---------- SCROLL TOP ---------- */
