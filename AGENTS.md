@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Serve the supplied Bake ñ Love document inside an isolated full-viewport iframe at the index route so its original CSS, DOM interactions, and screen-fit script remain unaffected by framework styles.
+- Keep supplied source files in public/bake-love and image asset pointers in src/assets; use their hosted URLs in the original document to preserve the supplied imagery.
