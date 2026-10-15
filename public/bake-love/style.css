@@ -21,7 +21,7 @@ body{background:var(--bg);color:var(--dark);font-family:'Public Sans','Helvetica
 
 /* swipe deck: chhota card + dono side shadow */
 .deck{display:grid;width:64%;max-width:250px;margin:0 auto}
-.sc{grid-area:1/1;position:relative;display:flex;flex-direction:column;background:var(--card);border-radius:18px;box-shadow:0 8px 22px rgba(28,10,13,.62),-12px 0 20px -4px rgba(28,10,13,.55),12px 0 20px -4px rgba(28,10,13,.55);overflow:hidden;touch-action:none;transition:transform .3s,opacity .3s;cursor:grab}
+.sc{grid-area:1/1;position:relative;display:flex;flex-direction:column;background:var(--card);border-radius:18px;box-shadow:0 8px 22px rgba(28,10,13,.48),-12px 0 20px -4px rgba(28,10,13,.42),12px 0 20px -4px rgba(28,10,13,.42);overflow:hidden;touch-action:none;transition:transform .3s,opacity .3s;cursor:grab}
 .sc .im{flex:none;height:auto;aspect-ratio:10/7;background-color:#F3E4E2;background-size:cover;background-repeat:no-repeat;background-position:center;display:flex;align-items:center;justify-content:center;font-size:70px}
 .sc .tx{flex:1;min-height:120px;padding:14px 16px}
 .sc .tag{display:inline-block;border:1px solid var(--sky-deep);color:var(--sky-deep);border-radius:20px;padding:2px 10px;font-size:11px;letter-spacing:1px;font-weight:700;margin-bottom:6px;text-transform:uppercase}
