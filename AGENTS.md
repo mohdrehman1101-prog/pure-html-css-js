@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Serve the supplied Bake ñ Love document inside an isolated full-viewport iframe at the index route so its original CSS, DOM interactions, and screen-fit script remain unaffected by framework styles.
-- Keep supplied source files in public/bake-love and image asset pointers in src/assets; use their hosted URLs in the original document to preserve the supplied imagery.
+- Keep supplied source files in public/bake-love and every image/video it uses as a real file in public/bake-love/images, referenced by relative path; Lovable-only /__l5e URLs break on other hosts like Netlify. Replace media by swapping the file there.
