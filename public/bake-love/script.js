@@ -43,20 +43,20 @@ const FAV=['Espresso','Cappuccino','Oreo Shake','Aglio-e-Olio Pasta','Triple Che
 /* ---------- DISH IMAGES: photo lagani ho to dish ke naam ke saamne link daalo, jaise 'Espresso':'https://...' ---------- */
 /* Khali rahega to "Photo coming soon" dikhega. Naam bilkul waisa hi rakhna jaisa upar data me hai. */
 const IMG={
-'Espresso':'/__l5e/assets-v1/34819234-a738-4657-8d3e-fe2c28e28008/bake-love-5.jpg'
+'Espresso':'images/bake-love-5.jpg'
 };
 /* Match the Menu ke 6 cards ki photo (order: jaisa diya tha) */
 const MEMIMG={
-'Espresso':'/__l5e/assets-v1/4138f34b-8226-45db-8dee-e8c32e44552a/bake-love-3.png',
-'Cappuccino':'/__l5e/assets-v1/a8f8262f-58da-4df7-b1f4-f8a9ec1ef9a3/bake-love-9.jpg',
-'Oreo Shake':'/__l5e/assets-v1/d34ddaeb-b715-4b2f-8e49-9843afdf4b9d/bake-love-1.jpg',
-'Aglio-e-Olio Pasta':'/__l5e/assets-v1/5b5416a0-a6eb-4ee9-8cd4-017e9908def5/bake-love-2.jpg',
-'Triple Cheese Pizza':'/__l5e/assets-v1/0b9f81c1-3de3-4426-ba9a-a6b9f0463df3/bake-love-7.jpg',
-'Classic Fries':'/__l5e/assets-v1/7dd12cef-0b26-46e9-93e2-966148f3b639/bake-love-6.jpg'
+'Espresso':'images/bake-love-3.png',
+'Cappuccino':'images/bake-love-9.jpg',
+'Oreo Shake':'images/bake-love-1.jpg',
+'Aglio-e-Olio Pasta':'images/bake-love-2.jpg',
+'Triple Cheese Pizza':'images/bake-love-7.jpg',
+'Classic Fries':'images/bake-love-6.jpg'
 };
 const MI=n=>MEMIMG[n]||IMG[n]||'';
 /* Sliding puzzle ki badi photo ka link yahan daalo (khali rahega to "Photo coming soon") */
-const PUZZLE_IMG='/__l5e/assets-v1/635f5d0a-da54-41b8-8eba-756e17c79b49/bake-love-4.png';
+const PUZZLE_IMG='images/bake-love-4.png';
 
 const items=D.map((a,i)=>({id:i,cat:a[0],sub:a[1],name:a[2],price:a[3],desc:a[4]||'',veg:a[5],emoji:a[6],best:a[7],img:IMG[a[2]]||''}));
 const $=s=>document.querySelector(s);
@@ -131,7 +131,7 @@ $('#surp').onclick=surprise;
 
 /* ---------- WIN POPUP (puzzle + match game dono ke liye) ---------- */
 function win(t,m){
-  md.innerHTML=`<button class="x" aria-label="Close" title="Close">${icon('close')}</button><div class="pk win"><img src="/__l5e/assets-v1/f41e7f0f-b8f2-4e5a-8676-b8d55a496649/bake-love-8.png" alt=""><h2>${t}</h2><p>${m}</p><button class="btn" id="cl">Yay, Close</button></div>`;
+  md.innerHTML=`<button class="x" aria-label="Close" title="Close">${icon('close')}</button><div class="pk win"><img src="images/bake-love-8.png" alt=""><h2>${t}</h2><p>${m}</p><button class="btn" id="cl">Yay, Close</button></div>`;
   mo.classList.add('on');
 }
 
@@ -170,7 +170,7 @@ let mv,pairs,open,lock;
 function memInit(){
   const a=[...MEM,...MEM].sort(()=>Math.random()-.5);
   mv=0;pairs=0;open=[];lock=0;$('#mv').textContent=0;$('#pr').textContent=0;
-  $('#mg').innerHTML=a.map(n=>`<div class="mc" data-e="${n}"><div><span class="bk"><img src="/__l5e/assets-v1/290326c7-1480-4951-923c-78fbd03b19fd/bake-love-0.png" alt=""></span><span class="fr"${MI(n)?` style="background-image:url('${MI(n)}')"`:''}>${MI(n)?'':`<b class="phs">${n}<br>Photo coming soon</b>`}</span></div></div>`).join('');
+  $('#mg').innerHTML=a.map(n=>`<div class="mc" data-e="${n}"><div><span class="bk"><img src="images/bake-love-0.png" alt=""></span><span class="fr"${MI(n)?` style="background-image:url('${MI(n)}')"`:''}>${MI(n)?'':`<b class="phs">${n}<br>Photo coming soon</b>`}</span></div></div>`).join('');
 }
 $('#mg').onclick=e=>{const c=e.target.closest('.mc');
   if(!c||lock||c.classList.contains('f'))return;c.classList.add('f');open.push(c);
