@@ -200,9 +200,11 @@ $('#pz').onclick=e=>{const t=e.target.closest('.pt');if(!t)return;const i=+t.dat
 $('#ps').onclick=pzInit;pzInit();
 
 /* ---------- SCROLL TOP ---------- */
-addEventListener('scroll',()=>{$('#top').style.display=scrollY>400?'block':'none';
-  const hh=$('.head').getBoundingClientRect().height+30*Z;let cur='';document.querySelectorAll('h3.sub').forEach(h=>{if(h.getBoundingClientRect().top<hh)cur=h.textContent});
-  if(cur&&cur!==AS){AS=cur;renderSub();const c=document.querySelector('#sub .chip.on');c&&c.scrollIntoView({inline:'center',block:'nearest'})}});
+let scT=0;
+addEventListener('scroll',()=>{if(scT)return;scT=requestAnimationFrame(()=>{scT=0;
+  const tp=$('#top'),sh=scrollY>400?'block':'none';if(tp.style.display!==sh)tp.style.display=sh;
+  const hh=$('.head').getBoundingClientRect().height+30*Z;let cur='';for(const h of document.querySelectorAll('h3.sub')){if(h.getBoundingClientRect().top<hh)cur=h.textContent;else break}
+  if(cur&&cur!==AS){AS=cur;renderSub();const c=document.querySelector('#sub .chip.on');if(c){const p=c.parentElement;p.scrollTo({left:c.offsetLeft-(p.clientWidth-c.offsetWidth)/2})}}})},{passive:true});
 $('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
 renderSub();renderMenu();
 
