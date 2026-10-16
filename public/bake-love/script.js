@@ -2,7 +2,7 @@
 /* MAX_W = badi screen (laptop/tablet) par design ki sabse badi width. Bada karna ho to 640 ko badha do. */
 const MAX_W=640;
 let Z=1;
-function fit(){Z=Math.min(innerWidth,MAX_W)/400;document.body.style.zoom=Z}
+function fit(){const touch=matchMedia("(pointer:coarse)").matches;Z=(touch?innerWidth:Math.min(innerWidth,MAX_W))/400;document.body.style.zoom=Z}
 addEventListener('resize',fit);fit();
 
 /* ---------- DATA: Name|Price||Veg(1)/NonVeg(0) ---------- */
