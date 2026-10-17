@@ -95,7 +95,7 @@ $('#menu').onclick=e=>{const c=e.target.closest('.it');if(c)detail(items[c.datas
 
 /* ---------- MODALS ---------- */
 const mo=$('#mo'),md=$('#md');
-const close=()=>mo.classList.remove('on');
+const close=()=>{mo.classList.remove('on');md.classList.remove('tall')};
 mo.onclick=e=>{if(e.target===mo||e.target.closest('.x')||e.target.id==='cl')close()};
 function detail(it){
   md.innerHTML=`<button class="x" aria-label="Close" title="Close">${icon('close')}</button><div class="dt"><div class="im${cls(it)}" style="${media(it)}">${inner(it)}</div><div class="bd">
