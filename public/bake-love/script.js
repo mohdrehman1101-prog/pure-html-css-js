@@ -215,3 +215,26 @@ document.querySelectorAll('.tomenu').forEach(b=>b.onclick=()=>{site.classList.re
 $('#visit').onclick=()=>$('#about').scrollIntoView({behavior:'smooth'});
 $('#tx').onclick=e=>{e.stopPropagation();$('#toast').style.display='none'};
 $('#toast').onclick=()=>{site.classList.remove('on');scrollTo({top:0})};
+
+/* ---------- REVIEW + INSTAGRAM ---------- */
+const GREV='https://search.google.com/local/writereview?placeid=ChIJqcfNOwA5nDkRMU_gxDu6tFQ';
+const REVIEWS=[
+ 'A cute little cafe with a great vibe! Perfect for spending time with friends and enjoying a coffee. Had a good experience overall.',
+ "Loved the coffee and the overall cafe experience. It's a nice place to relax, catch up with friends, or just enjoy some coffee. Looking forward to visiting again!",
+ 'Really liked the vibe of this cafe. The place feels nice and cozy, and the coffee was good too. A lovely spot to hang out with friends. Would definitely visit again!'
+];
+/* copy without any permission prompt; falls back silently if the browser blocks it */
+const clip=s=>{const t=document.createElement('textarea');t.value=s;t.setAttribute('readonly','');t.style.cssText='position:fixed;top:-999px;opacity:0';document.body.appendChild(t);t.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}document.body.removeChild(t);if(!ok&&navigator.clipboard)navigator.clipboard.writeText(s).catch(()=>{});return ok};
+const openG=()=>window.open(GREV,'_blank','noopener');
+function reviewPick(){
+  md.classList.add('tall');
+  md.innerHTML=`<button class="x" aria-label="Close" title="Close">${icon('close')}</button><div class="rv">
+  <small>${icon('star')} SHARE THE LOVE</small><h2>Write a Google Review</h2>
+  <p>Tap a note to copy it, then paste it into Google. Or write your own.</p>
+  ${REVIEWS.map((r,i)=>`<button class="op" data-r="${i}"><b>${icon('sparkle')} Note ${i+1}</b>${r}</button>`).join('')}
+  <button class="btn" id="own">${icon('arrow')} Write my own review</button></div>`;
+  mo.classList.add('on');
+  md.querySelectorAll('.op').forEach(b=>b.onclick=()=>{clip(REVIEWS[+b.dataset.r]);b.querySelector('b').innerHTML=`${icon('heart')} Copied — now paste it in Google`;openG()});
+  md.querySelector('#own').onclick=openG;
+}
+$('#grev').onclick=reviewPick;

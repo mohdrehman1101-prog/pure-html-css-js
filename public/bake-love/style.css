@@ -137,3 +137,19 @@ h3.sub{font-size:22px;margin:20px 14px 12px;font-family:inherit;font-weight:800}
 .surp .ui-icon{width:19px;height:19px}
 #toast>span .ui-icon{width:22px;height:22px}
 .pk h2 .ui-icon{width:20px;height:20px}
+
+/* review + instagram row */
+.soc{display:flex;margin:0 14px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--pink)}
+.sb2{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 8px;background:var(--pink);color:var(--sky-deep);border:0;font-size:13px;font-weight:700;font-family:inherit;text-decoration:none;cursor:pointer}
+.sb2+.sb2{border-left:1px solid var(--line)}
+.sb2 .ui-icon{width:17px;height:17px}
+/* ready-made review notes */
+.md.tall{max-height:calc(100dvh - 36px);overflow-y:auto}
+.rv{padding:22px}
+.rv small{display:block;text-align:center;font-size:10px;letter-spacing:2px;font-weight:700;color:#567581}
+.rv h2{font-family:'Pathway Gothic One','Oswald','Arial Narrow',Impact,sans-serif;text-transform:uppercase;font-size:20px;text-align:center;margin-top:4px}
+.rv>p{font-size:12.5px;color:var(--mut);text-align:center;margin:8px 0 4px;line-height:1.45}
+.op{display:block;width:100%;text-align:left;margin-top:10px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;font-size:13px;line-height:1.45;color:var(--dark);cursor:pointer;font-family:inherit}
+.op b{display:block;font-size:9.5px;letter-spacing:1.5px;font-weight:700;color:var(--sky-deep);margin-bottom:5px;text-transform:uppercase}
+.op:active{background:var(--sage-soft)}
+.rv .btn{margin-top:16px}
