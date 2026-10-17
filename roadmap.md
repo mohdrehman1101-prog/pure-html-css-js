@@ -5,4 +5,5 @@
 - [x] Header mein user ka apna logo professional tarike se lagana — white background hatayi, images/bake-love-logo.png; favicon bhi isi se set kiya.
 - [x] Purani pink color hatakar blue #8CCBDB lagana — sirf style.css ke color values; size, layout, geometry, text sab same.
 - [x] Swipe area ke buttons, active dot aur Surprise Pick patti ko blue #8CCBDB karna — sirf background color; size, position, text sab same.
+- [x] Surprise Pick patti ke niche Review (Google) aur Instagram ke do pill buttons — same style, ready-made review notes copy hoke Google khulta hai; baaki design same.
 
